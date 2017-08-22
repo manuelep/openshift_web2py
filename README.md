@@ -37,6 +37,12 @@ installation on [OpenShift](https://www.openshift.com/) service
 
     > **Note**: If you want a specific release and not the latest snapshot, replace "master" with the branch name in the above lines (ie. 2.3.2).
 
+That's it, you can now checkout your application at:
+
+    http://web2py-<your namespace here>.rhcloud.com
+
+Now you can go for further reading to the [original project documentation](https://github.com/manuelep/openshift_web2py/blob/master/README-2.md#database-setup).
+
 # How I did it
 
 ![how I did it](https://nevalalee.files.wordpress.com/2012/04/how-i-did-it.jpg "how I did it")
@@ -118,6 +124,12 @@ the web2py project as a [submodule](https://git-scm.com/docs/git-submodule).
     git push
     git git push origin web2py-R.2.14.6
     ```
+
+References
+===
+
+1. [openshift_web2py github wiki](https://github.com/prelegalwonder/openshift_web2py/wiki)
+2. [openshift_web2py github repo](https://github.com/prelegalwonder/openshift_web2py)
 
 Notes
 ===
