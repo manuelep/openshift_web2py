@@ -9,7 +9,33 @@ installation on [OpenShift](https://www.openshift.com/) service
 
 # How to use it
 
+1. Clone this repository
 
+    ```bash
+    git clone https://github.com/manuelep/openshift_web2py.git
+    ```
+
+1. Create a python application
+
+    This step requires an [OpenShift](https://openshift.redhat.com/app/login?then=%2Fapp%2Fconsole)
+    account and the [rhc](#rhc) package installed.
+
+    ```bash
+    rhc app create -a web2py -t python-2.7 --token <your token here>
+    ```
+
+    > **Note**: this step creates a brand new local git project in your work directory called _web2py_
+
+1. Synch the new application with the OpenShift/web2py intergration project cloned before
+
+    ```bash
+    cd web2py
+    git remote add upstream -m master ../openshift_web2py
+    git pull -s recursive -X theirs upstream master
+    git push
+    ```
+
+    > **Note**: If you want a specific release and not the latest snapshot, replace "master" with the branch name in the above lines (ie. 2.3.2).
 
 # How I did it
 
@@ -92,3 +118,14 @@ the web2py project as a [submodule](https://git-scm.com/docs/git-submodule).
     git push
     git git push origin web2py-R.2.14.6
     ```
+
+Notes
+===
+
+## <a name="rhc"></a> rhc
+
+OpenShift is a cloud computing platform as a service (PaaS) product from Red Hat.
+**rhc** is a _command-line client_ for OpenShift that allows you to remotely manage
+your OpenShift application.
+
+* [Debian users doc reference](https://packages.debian.org/search?keywords=rhc)
